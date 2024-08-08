@@ -40,8 +40,8 @@ void extractDataFromOrderedDict(const std::string& orderedDictStr) {
   std::string::const_iterator searchStart(orderedDictStr.cbegin());
 
   // Define variables to store the extracted values
-  double R3 = 0.0, Y3 = 0.0, B3 = 0.0;
-  double R4 = 0.0, Y4 = 0.0, B4 = 0.0;
+  double R1 = 0.0, Y1 = 0.0, B1 = 0.0;
+  double R2 = 0.0, Y2 = 0.0, B2 = 0.0;
 
   while (std::regex_search(searchStart, orderedDictStr.cend(), matches,
                            pairRegex)) {
@@ -49,30 +49,30 @@ void extractDataFromOrderedDict(const std::string& orderedDictStr) {
     double value = std::stod(matches[2]);
 
     // Store the value based on the key
-    if (key == "R3") {
-      R3 = value;
-    } else if (key == "Y3") {
-      Y3 = value;
-    } else if (key == "B3") {
-      B3 = value;
-    } else if (key == "R4") {
-      R4 = value;
-    } else if (key == "Y4") {
-      Y4 = value;
-    } else if (key == "B4") {
-      B4 = value;
+    if (key == "R1") {
+      R1 = value;
+    } else if (key == "Y1") {
+      Y1 = value;
+    } else if (key == "B1") {
+      B1 = value;
+    } else if (key == "R2") {
+      R2 = value;
+    } else if (key == "Y2") {
+      Y2 = value;
+    } else if (key == "B2") {
+      B2 = value;
     }
 
     searchStart = matches.suffix().first;
   }
 
   // Print the extracted values
-  std::cout << "R3: " << R3 << std::endl;
-  std::cout << "Y3: " << Y3 << std::endl;
-  std::cout << "B3: " << B3 << std::endl;
-  std::cout << "R4: " << R4 << std::endl;
-  std::cout << "Y4: " << Y4 << std::endl;
-  std::cout << "B4: " << B4 << std::endl;
+  std::cout << "R1: " << R1 << std::endl;
+  std::cout << "Y1: " << Y1 << std::endl;
+  std::cout << "B1: " << B1 << std::endl;
+  std::cout << "R2: " << R2 << std::endl;
+  std::cout << "Y2: " << Y2 << std::endl;
+  std::cout << "B2: " << B2 << std::endl;
 }
 
 // JSON payload
@@ -90,22 +90,22 @@ std::string constructJsonPayload(int node_id, int gateway,
       std::to_string(gateway) +
       ","
       "\"dynamic_data\": {"
-      "\"R3\": " +
+      "\"R1\": " +
       std::to_string(sensor1_current) +
       ","
-      "\"Y3\": " +
+      "\"Y1\": " +
       std::to_string(sensor2_current) +
       ","
-      "\"B3\": " +
+      "\"B1\": " +
       std::to_string(sensor3_current) +
       ","
-      "\"R4\": " +
+      "\"R2\": " +
       std::to_string(sensor4_current) +
       ","
-      "\"Y4\": " +
+      "\"Y2\": " +
       std::to_string(sensor5_current) +
       ","
-      "\"B4\": " +
+      "\"B2\": " +
       std::to_string(sensor6_current) +
       "}"
       "}";
