@@ -15,8 +15,7 @@ using namespace std;
 #define ADS1115_ADDR2 0x49
 #define REFERENCE_VOLTAGE 4.096
 #define MAX_ADC_VALUE 32768.0  // 2^15
-#define SENSITIVITY \
-  0.05  // Sensitivity in A/V, adjust based on your sensor's datasheet
+#define SENSITIVITY  0.05  // Sensitivity in A/V, adjust based on your sensor's datasheet
 #define NOISE_THRESHOLD 0.02  // Adjust this based on your sensor's noise level
 #define NUM_SAMPLES 100
 #define CURRENT_THRESHOLD 2.9  // CURRENT VALUE MAX IS 2.9A
